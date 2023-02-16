@@ -2,7 +2,14 @@ import ClinicsController from "../controllers/clinics";
 import BadRequestHandler from "../error-handlers/bad-request";
 import SearchClinicsValidator from "../validators/search-clinics";
 
-const ClinicsRoutes = [
+//###########################################################################
+/**
+ * Define clinic search route with GET method
+ * @method - GET
+ * @path '/clinics/search'
+ * @handlers - It will handle the validation of request
+ */
+const clinicsRoutes = [
     {
         method: 'GET',
         path: '/clinics/search',
@@ -10,4 +17,4 @@ const ClinicsRoutes = [
     }
 ];
 
-export default ClinicsRoutes
+export { clinicsRoutes }
