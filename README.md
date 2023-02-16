@@ -76,17 +76,17 @@ Be sure to swap out `${package.json.version}` with the actual
 version.
 
 Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, this simply map port 9000 of the host to
+your host. In this example, this simply map port 3000 of the host to
 port 4000 of the Docker (or whatever port was exposed in the Dockerfile):
 
 ```sh
-docker run -it -p 9000:4000 -d <your username>/clinics-search:latest
+docker run -it -p 3000:4000 -d <your username>/clinics-search:latest
 ```
 Verify the deployment by navigating to your server address in
 your preferred browser.
 
 ```sh
-127.0.0.1:9000/clinics/search
+127.0.0.1:3000/clinics/search
 ```
 
 Few useful Docker commands
@@ -102,9 +102,9 @@ Published docker Image
 ---
 If you don't want to build image locally, you can try already built image.
 ```
-docker pull soniabehal/clinics-search
+docker pull guri/clinics-search
 ```
-[Docker Hub link](https://hub.docker.com/r/soniabehal/clinics-search)
+[Docker Hub link](https://hub.docker.com/r/guri/clinics-search)
 
 Local Development
 ---
