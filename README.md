@@ -1,47 +1,45 @@
-# Clinics Search
+# Clinics Search API
 ## Search available clinics
 
-Exposes an api to search available clinics based on certain criterias (name,state,availability).
+Exposes an api to search available clinics based on multiple filters (name, state, availability).
+
+## Environment variables
+
+| Variable                           | Description                                                                                       | Default                                                                                                                                                         |      Type           |
+| :--------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
+| PORT                               | The port used for the express                                                                     |   3000                                                                                                                                                          |       Number        |
+| ENDPOINTS_LIST                     | Endpoints to get the clinics data                                                                 | ['https://storage.googleapis.com/scratchpay-code-challenge/dental-clinics.json', 'https://storage.googleapis.com/scratchpay-code-challenge/vet-clinics.json']   |       Array         |
 
 
 ## Installation
 
 It requires [Node.js](https://nodejs.org/) v14+ to run.
 
-Install the dependencies and devDependencies and start the server.
-
+## Commands
 ```sh
-npm i
-npm run build
-npm run start
+`npm install` to install all dependencies and devDependencies 
+`npm run build` to create build from the source files
+`npm run start` to start the development server
+`npm run test` to run Unit test cases
+`npm run test:coverage` to run Unit test cases with coverage
+`npm run prod` to start the production server
 ```
 
-For production environments...
+### Example
 
-```sh
-npm run prod
 ```
+# Search all clinics
 
-Sample API request
----
-**All Clinics fetch**
-```
-curl --location --request GET 'localhost:9000/clinics/search'
-```
+`curl --location --request GET 'localhost:3000/clinics/search'`
 
-**Clinics Search by Name**
-```
-curl --location --request GET 'localhost:9000/clinics/search?name={$name}''
-```
+# Search clinics by name
 
-**Clinics Search by State**
-```
-curl --location --request GET 'localhost:9000/clinics/search?state=CA'
-```
+`curl --location --request GET 'localhost:3000/clinics/search?name={$name}'`
 
-**Clinics Search by Availability**
-```
-curl --location --request GET 'localhost:9000/clinics/search?availableFrom=09:00&availableTill=23:40'
+# Search Clinics by availability
+
+`curl --location --request GET 'localhost:3000/clinics/search?availableFrom=09:00&availableTill=23:40'`
+
 ```
 
 Assumptions
@@ -50,14 +48,14 @@ Assumptions
 - `availableFrom` and `availableTill` filters don't work on exact given inputs, works in way available clinics time should greater than or equal to `availableFrom` and vice-versa for available till
 - Both name and state filters works on name and ClientName, stateName and stateCode respectively 
 
-## Tech
+## Tech Stack
 
 Leveraged technology for this app
 - [node.js](https://nodejs.org/) - evented I/O for the backend
 - [Express](https://expressjs.com/) - fast node.js network app framework
 - [Babel](https://babeljs.io/) - next-gen JS compiler
 
-And of course Clinic Search itself is an open source with a [public repository][https://gitlab.com/SoniaBehal/clinic-search.git]
+And of course Clinic Search itself is an open source with a [public repository][https://github.com/happy315/v1-clinic-search.git]
  on GitHub.
 
 ## Docker
@@ -111,12 +109,16 @@ docker pull soniabehal/clinics-search
 Local Development
 ---
 > - copy .env.example to .env
-> - By default port is 4000, if you want to change add it to env file  PORT=7000
-> - Add comma seperated ENDPOINTS_LIST='a,b'  endpoints for clinics data
+> - By default port is 3000, if you want to change add it to env file  PORT=3000
+> - Add ENDPOINTS_LIST=[URL1, URL2]  endpoints for clinics data
 > - npm run dev
 
 Tada: you are good to go
 
 ## License
 MIT
+
+
+
+
 
