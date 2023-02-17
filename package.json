@@ -1,20 +1,20 @@
 {
-  "name": "clinic-search",
+  "name": "api-clinic-search",
   "version": "1.0.0",
-  "description": "",
+  "description": "Clinic search api Node server",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "dev": "npm-run-all build server --NODE_ENV=development",
+    "server": "node ./dist/server",
     "start": "npm run server",
     "build": "npm-run-all clean transpile",
-    "server": "node ./dist/server",
-    "dev": "npm-run-all build server --NODE_ENV=development",
     "prod": "npm-run-all build server --NODE_ENV=production",
     "transpile": "babel ./server --out-dir dist",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "clean": "rimraf dist"
   },
-  "author": "",
+  "author": "Gurpreet",
   "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.15.4",
