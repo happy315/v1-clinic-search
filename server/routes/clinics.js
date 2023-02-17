@@ -1,6 +1,6 @@
-import ClinicsController from "../controllers/clinics";
-import BadRequestHandler from "../error-handlers/bad-request";
-import SearchClinicsValidator from "../validators/search-clinics";
+import { searchClinics } from "../controllers/clinics";
+import { BadRequestHandler } from "../error-handlers/bad-request";
+import { clinicsQueryValidator } from "../validators/search-clinics";
 
 //###########################################################################
 /**
@@ -13,7 +13,7 @@ const clinicsRoutes = [
     {
         method: 'GET',
         path: '/clinics/search',
-        handlers: [SearchClinicsValidator, BadRequestHandler, ClinicsController.searchClinics]
+        handlers: [clinicsQueryValidator, BadRequestHandler, searchClinics]
     }
 ];
 

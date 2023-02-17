@@ -8,7 +8,7 @@ Exposes an api to search available clinics based on multiple filters (name, stat
 | Variable                           | Description                                                                                       | Default                                                                                                                                                         |      Type           |
 | :--------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
 | PORT                               | The port used for the express                                                                     |   3000                                                                                                                                                          |       Number        |
-| ENDPOINTS_LIST                     | Endpoints to get the clinics data                                                                 | ['https://storage.googleapis.com/scratchpay-code-challenge/dental-clinics.json', 'https://storage.googleapis.com/scratchpay-code-challenge/vet-clinics.json']   |       Array         |
+| ENDPOINTS_LIST                     | Endpoints to get the clinics data, add multiple endpoints with comma seperated values             | 'https://storage.googleapis.com/scratchpay-code-challenge/dental-clinics.json,https://storage.googleapis.com/scratchpay-code-challenge/vet-clinics.json'   |       String        |
 
 
 ## Installation
@@ -38,11 +38,11 @@ It requires [Node.js](https://nodejs.org/) v14+ to run.
 
 # Search Clinics by availability
 
-`curl --location --request GET 'localhost:3000/clinics/search?availableFrom=09:00&availableTill=23:40'`
+`curl --location --request GET 'localhost:3000/clinics/search?availableFrom=10:00&availableTill=22:40'`
 
 ```
 
-Assumptions
+Assumptions Based on User experience
 ---
 - User is expected to both Authenticated and Authorized, that's why allowed access to api 
 - `availableFrom` and `availableTill` filters don't work on exact given inputs, works in way available clinics time should greater than or equal to `availableFrom` and vice-versa for available till
