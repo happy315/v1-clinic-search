@@ -110,10 +110,10 @@ Local Development
 ---
 > - copy .env.example to .env
 > - By default port is 3000, if you want to change add it to env file  PORT=3000
-> - Add ENDPOINTS_LIST=[URL1, URL2]  endpoints for clinics data
+> - Add comma seperated ENDPOINTS_LIST='a,b'  endpoints for clinics data
 > - npm run dev
 
-Tada: you are good to go
+you are good to go
 
 ## License
 MIT
