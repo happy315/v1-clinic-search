@@ -1,4 +1,4 @@
-const mockClinicsData = [
+const clinicsMockData = [
     {
         "clinicName": "Good Health Home",
         "stateName": "Florida",
@@ -41,4 +41,4 @@ const mockClinicsData = [
     }
 ];
 
-export default mockClinicsData;
+export default clinicsMockData;

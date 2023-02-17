@@ -1,98 +1,98 @@
-import HelperService, { PARAMS } from "../../services/helper-service";
-import mockClinicsData from "../mock-data";
+import { isFilterApplied, queryEnum, applySearchFilters } from "../../services/util-service";
+import clinicsMockData from "../mock-data";
 
 test('helper-serivce: isFilterApplied should return true when any of the filter is applied ', () => {
-    expect(HelperService?.isFilterApplied(
-        { [PARAMS.STATE]: 'CA' }
+    expect(isFilterApplied(
+        { [queryEnum.STATE]: 'CA' }
     )).toBeTruthy();
 
-    expect(HelperService?.isFilterApplied(
-        { [PARAMS.NAME]: 'abc' }
+    expect(isFilterApplied(
+        { [queryEnum.NAME]: 'abc' }
     )).toBeTruthy();
 
-    expect(HelperService?.isFilterApplied(
-        { [PARAMS.AVAILABLE_FROM]: '10:00' }
+    expect(isFilterApplied(
+        { [queryEnum.AVAILABLE_FROM]: '10:00' }
     )).toBeTruthy();
 
-    expect(HelperService?.isFilterApplied(
-        { [PARAMS.AVAILABLE_TILL]: '14:50' }
+    expect(isFilterApplied(
+        { [queryEnum.AVAILABLE_TILL]: '14:50' }
     )).toBeTruthy();
 });
 
 test('helper-serivce: isFilterApplied should return true when all of the filter are applied ', () => {
-    expect(HelperService?.isFilterApplied(
+    expect(isFilterApplied(
         {
-            [PARAMS.STATE]: 'CA',
-            [PARAMS.NAME]: 'abc',
-            [PARAMS.AVAILABLE_FROM]: '10:00',
-            [PARAMS.AVAILABLE_TILL]: '14:50'
+            [queryEnum.STATE]: 'CA',
+            [queryEnum.NAME]: 'abc',
+            [queryEnum.AVAILABLE_FROM]: '11:00',
+            [queryEnum.AVAILABLE_TILL]: '22:50'
         }
     )).toBeTruthy();
 });
 
 test('helper-serivce: isFilterApplied should return false when none of the filter is applied ', () => {
-    expect(HelperService?.isFilterApplied(null)).toBe(false);
-    expect(HelperService?.isFilterApplied({})).toBe(false);
+    expect(isFilterApplied(null)).toBe(false);
+    expect(isFilterApplied({})).toBe(false);
 });
 
-test('helper-serivce: clinicMatchesFilterCriterias should return true when it matches filter criteria ', () => {
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[0],
-        { [PARAMS.STATE]: 'fl' }
+test('helper-serivce: applySearchFilters should return true when it matches filter criteria ', () => {
+    expect(applySearchFilters(
+        clinicsMockData[0],
+        { [queryEnum.STATE]: 'fl' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[0],
-        { [PARAMS.STATE]: 'florida' }
+    expect(applySearchFilters(
+        clinicsMockData[0],
+        { [queryEnum.STATE]: 'florida' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[0],
-        { [PARAMS.STATE]: 'Florida' }
+    expect(applySearchFilters(
+        clinicsMockData[0],
+        { [queryEnum.STATE]: 'Florida' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[1],
-        { [PARAMS.STATE]: 'CA' }
+    expect(applySearchFilters(
+        clinicsMockData[1],
+        { [queryEnum.STATE]: 'CA' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[1],
-        { [PARAMS.NAME]: 'na' }
+    expect(applySearchFilters(
+        clinicsMockData[1],
+        { [queryEnum.NAME]: 'na' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[1],
-        { [PARAMS.NAME]: 'National Veterinary Clinic' }
+    expect(applySearchFilters(
+        clinicsMockData[1],
+        { [queryEnum.NAME]: 'National Veterinary Clinic' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[2],
-        { [PARAMS.NAME]: 'ge' }
+    expect(applySearchFilters(
+        clinicsMockData[2],
+        { [queryEnum.NAME]: 'ge' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[2],
-        { [PARAMS.NAME]: 'German Pets Clinics' }
+    expect(applySearchFilters(
+        clinicsMockData[2],
+        { [queryEnum.NAME]: 'German Pets Clinics' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[3],
-        { [PARAMS.AVAILABLE_FROM]: '10:00' }
+    expect(applySearchFilters(
+        clinicsMockData[3],
+        { [queryEnum.AVAILABLE_FROM]: '10:00' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[3],
-        { [PARAMS.AVAILABLE_TILL]: '23:50' }
+    expect(applySearchFilters(
+        clinicsMockData[3],
+        { [queryEnum.AVAILABLE_TILL]: '23:50' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[4],
-        { [PARAMS.AVAILABLE_FROM]: '10:00' }
+    expect(applySearchFilters(
+        clinicsMockData[4],
+        { [queryEnum.AVAILABLE_FROM]: '10:00' }
     )).toBeTruthy();
 
-    expect(HelperService?.clinicMatchesFilterCriterias(
-        mockClinicsData[4],
-        { [PARAMS.AVAILABLE_TILL]: '23:50' }
+    expect(applySearchFilters(
+        clinicsMockData[4],
+        { [queryEnum.AVAILABLE_TILL]: '23:50' }
     )).toBeTruthy();
 });
