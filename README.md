@@ -7,7 +7,7 @@ Exposes an api to search available clinics based on multiple filters (name, stat
 
 | Variable                           | Description                                                                                       | Default                                                                                                                                                         |      Type           |
 | :--------------------------------- | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------|
-| PORT                               | The port used for the express                                                                     |   3000                                                                                                                                                          |       Number        |
+| PORT                               | The port used for the express                                                                     |   7000                                                                                                                                                          |       Number        |
 | ENDPOINTS_LIST                     | Endpoints to get the clinics data, add multiple endpoints with comma seperated values             | 'https://storage.googleapis.com/scratchpay-code-challenge/dental-clinics.json,https://storage.googleapis.com/scratchpay-code-challenge/vet-clinics.json'   |       String        |
 
 
@@ -30,15 +30,15 @@ It requires [Node.js](https://nodejs.org/) v14+ to run.
 ```
 # Search all clinics
 
-`curl --location --request GET 'localhost:3000/clinics/search'`
+`curl --location --request GET 'localhost:7000/clinics/search'`
 
 # Search clinics by name
 
-`curl --location --request GET 'localhost:3000/clinics/search?name={$name}'`
+`curl --location --request GET 'localhost:7000/clinics/search?name={$name}'`
 
 # Search Clinics by availability
 
-`curl --location --request GET 'localhost:3000/clinics/search?availableFrom=10:00&availableTill=22:40'`
+`curl --location --request GET 'localhost:7000/clinics/search?availableFrom=10:00&availableTill=22:40'`
 
 ```
 
@@ -76,11 +76,11 @@ Be sure to swap out `${package.json.version}` with the actual
 version.
 
 Once done, run the Docker image and map the port to whatever you wish on
-your host. In this example, this simply map port 3000 of the host to
-port 4000 of the Docker (or whatever port was exposed in the Dockerfile):
+your host. In this example, this simply map port 7000 of the host to
+port 3000 of the Docker (or whatever port was exposed in the Dockerfile):
 
 ```sh
-docker run -it -p 3000:4000 -d <your username>/clinics-search:latest
+docker run -it -p 7000:3000 -d <your username>/clinics-search:latest
 ```
 Verify the deployment by navigating to your server address in
 your preferred browser.
@@ -89,7 +89,7 @@ your preferred browser.
 127.0.0.1:3000/clinics/search
 ```
 
-Few useful Docker commands
+Few more useful Docker commands
 ---
 ```sh
 docker images      -- list images
@@ -109,7 +109,7 @@ docker pull guri/clinics-search
 Local Development
 ---
 > - copy .env.example to .env
-> - By default port is 3000, if you want to change add it to env file  PORT=3000
+> - By default port is 7000, if you want to change add it to env file  PORT=5000
 > - Add comma seperated ENDPOINTS_LIST='a,b'  endpoints for clinics data
 > - npm run dev
 

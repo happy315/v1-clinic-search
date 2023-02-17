@@ -16,7 +16,7 @@ app.use(morgan('tiny', { stream: accessLogStream }))
 
 app.use("/", routes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 7000;
 
 app.listen(port, (err) => {
     if (err) { console.log("Error in starting server", err.message) }
