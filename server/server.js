@@ -20,5 +20,5 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, (err) => {
     if (err) { console.log("Error in starting server", err.message) }
-    else { console.log("Server started at port:- ", port); }
+    else { console.log("Server is running at port: ", port); }
 });
