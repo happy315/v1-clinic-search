@@ -1,4 +1,4 @@
-import { getClinics } from "../services/clinics-service";
+import getClinics from "../services/clinics-service";
 import { isFilterApplied, applySearchFilters } from "../services/util-service";
 
 //######################################################################################
@@ -39,4 +39,4 @@ const searchClinics = async (req, res) => {
     }
 }
 
-export { searchClinics };
+export default searchClinics

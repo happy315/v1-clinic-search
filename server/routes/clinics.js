@@ -1,7 +1,6 @@
-import { searchClinics } from "../controllers/clinics";
+import searchClinics from "../controllers/clinics";
+import clinicsQueryValidator from "../validators/search-clinics";
 import { BadRequestHandler } from "../error-handlers/bad-request";
-import { clinicsQueryValidator } from "../validators/search-clinics";
-
 //###########################################################################
 /**
  * Define clinic search route with GET method
@@ -17,4 +16,4 @@ const clinicsRoutes = [
     }
 ];
 
-export { clinicsRoutes }
+export default clinicsRoutes;

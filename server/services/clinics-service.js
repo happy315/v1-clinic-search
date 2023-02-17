@@ -27,4 +27,4 @@ const getClinics = async () => {
 
 };
 
-export { getClinics };
+export default getClinics;

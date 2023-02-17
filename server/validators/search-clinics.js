@@ -22,4 +22,4 @@ const clinicsQueryValidator = [
     check('availableTill').optional().matches(RegexTimeValidation)
 ];
 
-export { clinicsQueryValidator };
+export default clinicsQueryValidator;
