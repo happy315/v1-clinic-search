@@ -98,14 +98,6 @@ docker logs <container id>       -- fetch logs for container
 docker exec -it <container id> /bin/bash   -- enter into conatiner
 ```
 
-Published docker Image
----
-If you don't want to build image locally, you can try already built image.
-```
-docker pull guri/clinics-search
-```
-[Docker Hub link](https://hub.docker.com/r/guri/clinics-search)
-
 Local Development
 ---
 > - copy .env.example to .env
