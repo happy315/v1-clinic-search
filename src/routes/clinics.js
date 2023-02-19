@@ -1,6 +1,6 @@
 import searchClinics from "../controllers/clinics";
 import clinicsQueryValidator from "../validators/search-clinics";
-import { BadRequestHandler } from "../error-handlers/bad-request";
+import { ValidateRequestMiddleware } from "../middleware/validate-request-middleware";
 //###########################################################################
 /**
  * Define clinic search route with GET method
@@ -12,7 +12,7 @@ const clinicsRoutes = [
     {
         method: 'GET',
         path: '/clinics/search',
-        handlers: [clinicsQueryValidator, BadRequestHandler, searchClinics]
+        handlers: [clinicsQueryValidator, ValidateRequestMiddleware, searchClinics]
     }
 ];
 

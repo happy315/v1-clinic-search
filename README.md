@@ -42,12 +42,6 @@ It requires [Node.js](https://nodejs.org/) v14+ to run.
 
 ```
 
-Assumptions Based on User experience
----
-- User is expected to both Authenticated and Authorized, that's why allowed access to api 
-- `availableFrom` and `availableTill` filters don't work on exact given inputs, works in way available clinics time should greater than or equal to `availableFrom` and vice-versa for available till
-- Both name and state filters works on name and ClientName, stateName and stateCode respectively 
-
 ## Tech Stack
 
 Leveraged technology for this app
@@ -62,7 +56,7 @@ And of course Clinic Search itself is an open source with a [public repository][
 
 It is very easy to install and deploy in a Docker container.
 
-By default, the Docker will expose port 4000, so change this within the
+By default, the Docker will expose port 3000, so change this within the
 Dockerfile if necessary. When ready, simply use the Dockerfile to
 build the image.
 
@@ -89,23 +83,13 @@ your preferred browser.
 127.0.0.1:3000/clinics/search
 ```
 
-Few more useful Docker commands
----
-```sh
-docker images      -- list images
-docker ps          -- list processes
-docker logs <container id>       -- fetch logs for container
-docker exec -it <container id> /bin/bash   -- enter into conatiner
-```
-
 Local Development
 ---
-> - copy .env.example to .env
+> - install all the dependencies/dev-dependencies via npm install command
+> - copy .env.example to .env file
 > - By default port is 7000, if you want to change add it to env file  PORT=5000
 > - Add comma seperated ENDPOINTS_LIST='a,b'  endpoints for clinics data
 > - npm run dev
-
-you are good to go
 
 ## License
 MIT

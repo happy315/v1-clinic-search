@@ -2,14 +2,14 @@
   "name": "api-clinic-search",
   "version": "1.0.0",
   "description": "Clinic search api Node server",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "dev": "npm-run-all build server --NODE_ENV=development",
-    "server": "node ./dist/server",
+    "server": "node ./dist/app",
     "start": "npm run server",
     "build": "npm-run-all clean transpile",
     "prod": "npm-run-all build server --NODE_ENV=production",
-    "transpile": "babel ./server --out-dir dist",
+    "transpile": "babel ./src --out-dir dist",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "clean": "rimraf dist"

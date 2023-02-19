@@ -9,7 +9,7 @@ import { validationResult } from "express-validator";
  * @param {*} next 
  * @returns {Object} error or next
  */
-const BadRequestHandler = (req, res, next) => {
+const ValidateRequestMiddleware = (req, res, next) => {
     
     // calling external function for validating request data
     const errors = validationResult(req);
@@ -23,5 +23,5 @@ const BadRequestHandler = (req, res, next) => {
     return next();
 };
 
-export { BadRequestHandler };
+export { ValidateRequestMiddleware };
 
