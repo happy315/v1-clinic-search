@@ -54,11 +54,7 @@ And of course Clinic Search itself is an open source with a [public repository][
 
 ## Docker
 
-It is very easy to install and deploy in a Docker container.
-
-By default, the Docker will expose port 3000, so change this within the
-Dockerfile if necessary. When ready, simply use the Dockerfile to
-build the image.
+An elegant way to deploy images in docker container. The Docker will expose port 3000 (by default), change this within the Dockerfile if required. When ready, simply use the Dockerfile to build the image.
 
 ```sh
 Go to root directory
